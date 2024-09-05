@@ -1,0 +1,65 @@
+<div class="container">
+    <h2>Temas</h2>
+  
+    <!-- Botão para criar novo tema -->
+    <button class="btn btn-primary" (click)="startCreating()" *ngIf="!isCreating && !selectedTheme">Criar Novo Tema</button>
+  
+    <!-- Listagem de temas -->
+    <div class="table-container">
+      <table *ngIf="themes.length > 0" class="themes-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cor</th>
+            <th>Preço</th>
+            <th>Itens</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let theme of themes">
+            <td>{{ theme.id }}</td>
+            <td>{{ theme.name }}</td>
+            <td>{{ theme.color }}</td>
+            <td>{{ theme.price | currency }}</td>
+            <td>{{ theme.itens.join(', ') }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="selectTheme(theme)">Editar</button>
+              <button class="btn btn-delete" (click)="deleteTheme(theme.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Formulário para criação/edição de tema -->
+    <div class="form-container" *ngIf="selectedTheme || isCreating">
+      <h3>{{ selectedTheme ? 'Editar Tema' : 'Criar Tema' }}</h3>
+      <form (ngSubmit)="onSubmit()" #themeForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input id="name" [(ngModel)]="formTheme.name" name="name" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="color">Cor:</label>
+          <input id="color" [(ngModel)]="formTheme.color" name="color" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="price">Preço:</label>
+          <input id="price" type="number" [(ngModel)]="formTheme.price" name="price" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="itens">Itens:</label>
+          <select id="itens" [(ngModel)]="formTheme.itens" name="itens" multiple class="form-control">
+            <option *ngFor="let item of items" [value]="item.id">{{ item.name }}</option>
+          </select>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-submit">{{ selectedTheme ? 'Atualizar' : 'Criar' }}</button>
+          <button type="button" (click)="cancel()" class="btn btn-cancel">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,51 @@
+<div class="container">
+    <h2>Itens</h2>
+  
+    <!-- Botão para criar novo item -->
+    <button class="btn btn-primary" (click)="startCreating()" *ngIf="!isCreating && !selectedItem">Criar Novo Item</button>
+  
+    <!-- Listagem de itens -->
+    <div class="table-container">
+      <table *ngIf="items.length > 0" class="items-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="selectItem(item)">Editar</button>
+              <button class="btn btn-delete" (click)="deleteItem(item.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Formulário para criação/edição de item -->
+    <div class="form-container" *ngIf="selectedItem || isCreating">
+      <h3>{{ selectedItem ? 'Editar Item' : 'Criar Item' }}</h3>
+      <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input id="name" [(ngModel)]="formItem.name" name="name" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="description">Descrição:</label>
+          <textarea id="description" [(ngModel)]="formItem.description" name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-submit">{{ selectedItem ? 'Atualizar' : 'Criar' }}</button>
+          <button type="button" (click)="cancel()" class="btn btn-cancel">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

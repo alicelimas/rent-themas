@@ -1,0 +1,222 @@
+.dashboard-summary {
+    margin: 30px auto; /* Centraliza horizontalmente com margem automática */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens no eixo horizontal */
+    gap: 20px; /* Ajusta o espaçamento entre os cards */
+  }
+  
+
+mat-card {
+    background-color: #ffffff; /* Define o fundo branco para os cartões */
+    color: #000000; /* Cor do texto */
+    margin: 5px;
+    width: 250px; /* Largura fixa para os cartões */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar os cartões */
+    padding: 15px; /* Espaçamento interno */
+    box-sizing: border-box; /* Inclui o padding e border no cálculo da largura e altura */
+    
+}
+
+mat-card-title {
+    font-size: 1.2rem; /* Tamanho da fonte aumentado */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    font-weight: bold; 
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 10px 0; 
+    max-width: 400px;
+}
+
+th, td {
+    padding: 8px; /* Espaçamento interno das células */
+    text-align: center; /* Alinhamento centralizado do texto */
+    border: 1px solid #ddd; /* Borda leve para as células */
+}
+
+th {
+    background-color: #f5f5f5; /* Cor de fundo para o cabeçalho da tabela */
+    font-weight: bold; /* Fonte em negrito para os cabeçalhos */
+}
+
+tr:nth-child(even) {
+    background-color: #7f5283; /* Cor de fundo alternada para linhas pares */
+}
+
+tr:nth-child(odd) {
+    background-color: #3a2e6c; /* Cor de fundo para linhas ímpares */
+}
+
+tr:hover {
+    background-color: #aa65aa; /* Cor de fundo ao passar o mouse */
+}
+
+.dashboard-charts {
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
+
+/* Estilo para o cartão Top Clientes */
+.top-clients-card {
+    box-shadow: none; /* Remove a sombra do cartão */
+    border-radius: 8px; /* Arredonda os cantos do cartão */
+    max-width: 100%; /* Define uma largura máxima para o cartão */
+}
+
+/* Estilo para o título do cartão */
+.top-clients-title {
+    font-size: 1.2rem; /* Tamanho da fonte do título */
+    margin-bottom: 5px; /* Espaço abaixo do título */
+    font-weight: bold; /* Fonte em negrito */
+    color: #333; /* Cor discreta para o título */
+    margin-left: 20px;
+}
+
+/* Estilo para a tabela */
+.dashboard-client-ranking table {
+    width: 100%; /* Largura total da tabela */
+    max-width: 100%; /* Garante que a tabela não ultrapasse a largura do cartão */
+    border-collapse: separate; /* Usa separação para bordas e espaçamento */
+    border-spacing: 0; /* Remove o espaçamento entre as células */
+    border-radius: 8px; /* Arredonda os cantos da tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas não sejam cortadas */
+}
+
+/* Estilo para as células da tabela */
+.dashboard-client-ranking th, 
+.dashboard-client-ranking td {
+    padding: 8px; /* Espaçamento interno das células */
+    text-align: center; /* Alinhamento centralizado do texto */
+    border: 1px solid #ddd; /* Borda leve para as células */
+    color: white;
+}
+
+/* Estilo para o cabeçalho da tabela */
+.dashboard-client-ranking th {
+    background-color: #f9f9f9; /* Cor de fundo discreta para o cabeçalho */
+    font-weight: bold; /* Fonte em negrito para os cabeçalhos */
+    color: #666; /* Cor discreta para o texto do cabeçalho */
+}
+
+/* Estilo para as linhas da tabela */
+.dashboard-client-ranking tr:nth-child(even) {
+    background-color: #6b5d81; /* Cor de fundo para linhas pares */
+}
+
+.dashboard-client-ranking tr:nth-child(odd) {
+    background-color: #574261; /* Cor de fundo para linhas ímpares */
+}
+
+/* Estilo para a linha ao passar o mouse */
+.dashboard-client-ranking tr:hover {
+    background-color: #72587f; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o cartão Top Temas */
+.top-themes-card {
+    box-shadow: none; /* Remove a sombra do cartão */
+    border-radius: 8px; /* Arredonda os cantos do cartão */
+    max-width: 100%; /* Define uma largura máxima para o cartão */
+  }
+  
+  /* Estilo para o título do cartão */
+  .top-themes-title {
+    font-size: 1.2rem; /* Tamanho da fonte do título */
+    margin-bottom: 5px; /* Espaço abaixo do título */
+    font-weight: bold; /* Fonte em negrito */
+    color: #333; /* Cor discreta para o título */
+    margin-left: 20px;
+  }
+  
+  /* Estilo para a tabela */
+  .dashboard-theme-ranking table {
+    width: 100%; /* Largura total da tabela */
+    max-width: 100%; /* Garante que a tabela não ultrapasse a largura do cartão */
+    border-collapse: separate; /* Usa separação para bordas e espaçamento */
+    border-spacing: 0; /* Remove o espaçamento entre as células */
+    border-radius: 8px; /* Arredonda os cantos da tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas não sejam cortadas */
+  }
+  
+  /* Estilo para as células da tabela */
+  .dashboard-theme-ranking th, 
+  .dashboard-theme-ranking td {
+    padding: 8px; /* Espaçamento interno das células */
+    text-align: center; /* Alinhamento centralizado do texto */
+    border: 1px solid #ddd; /* Borda leve para as células */
+    color: white;
+  }
+  
+  /* Estilo para o cabeçalho da tabela */
+  .dashboard-theme-ranking th {
+    background-color: #f9f9f9; /* Cor de fundo discreta para o cabeçalho */
+    font-weight: bold; /* Fonte em negrito para os cabeçalhos */
+    color: #666; /* Cor discreta para o texto do cabeçalho */
+  }
+  
+  /* Estilo para as linhas da tabela */
+  .dashboard-theme-ranking tr:nth-child(even) {
+    background-color: #2b2f5f; /* Cor de fundo para linhas pares */
+  }
+  
+  .dashboard-theme-ranking tr:nth-child(odd) {
+    background-color: #36346e; /* Cor de fundo para linhas ímpares */
+  }
+  
+  /* Estilo para a linha ao passar o mouse */
+  .dashboard-theme-ranking tr:hover {
+    background-color: #282467; /* Cor de fundo ao passar o mouse */
+  }
+
+  
+  .dashboard-rankings {
+    display: flex;
+    justify-content: space-between; /* Espaça igualmente os itens */
+    margin: 20px auto; /* Margem automática para centralizar horizontalmente */
+    gap: 5px; /* Ajusta o espaçamento entre as tabelas */
+  }
+  
+  .dashboard-client-ranking,
+  .dashboard-theme-ranking {
+    flex: 1; /* Permite que as tabelas se expandam igualmente */
+    margin: 0; /* Remove a margem das tabelas */
+  }
+  
+
+  .dashboard-summary {
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .dashboard-charts {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .dashboard-rankings {
+    margin: 20px auto;
+  }
+  
+  .ranking-tables {
+    display: flex;
+    justify-content: space-between; /* Ajuste o espaçamento entre as tabelas */
+    gap: 200px; /* Espaçamento entre as tabelas */
+    margin-left: 60px;
+  }
+  
+  .dashboard-client-ranking,
+  .dashboard-theme-ranking {
+    flex: 1;
+    margin: 0;
+  }
+  

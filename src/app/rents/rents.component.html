@@ -1,0 +1,81 @@
+<div class="container">
+    <h2>Aluguéis</h2>
+
+    <!-- Botão para iniciar a criação de um novo aluguel -->
+    <button class="btn-create" (click)="startCreating()">Adicionar Novo Aluguel</button>
+  
+    <!-- Listagem de alugueis -->
+    <table *ngIf="rents.length > 0" class="rents-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data</th>
+          <th>Início</th>
+          <th>Fim</th>
+          <th>Cliente</th>
+          <th>Tema</th>
+          <th>Endereço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rent of rents">
+          <td>{{ rent.id }}</td>
+          <td>{{ rent.date }}</td>
+          <td>{{ rent.start_hours }}</td>
+          <td>{{ rent.end_hours }}</td>
+          <td>{{ getClientName(rent.client) }}</td>
+          <td>{{ getThemeName(rent.theme) }}</td>
+          <td>{{ getAddressStreet(rent.address) }}</td>
+          <td>
+            <button class="btn-edit" (click)="selectRent(rent)">Editar</button>
+            <button class="btn-delete" (click)="deleteRent(rent.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulário para criação/edição de aluguel -->
+    <div *ngIf="selectedRent || isCreating" class="form-container">
+      <h3>{{ selectedRent ? 'Editar Aluguel' : 'Criar Aluguel' }}</h3>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="date">Data:</label>
+          <input id="date" type="date" [(ngModel)]="formRent.date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="start_hours">Início:</label>
+          <input id="start_hours" type="time" [(ngModel)]="formRent.start_hours" name="start_hours" required>
+        </div>
+        <div class="form-group">
+          <label for="end_hours">Fim:</label>
+          <input id="end_hours" type="time" [(ngModel)]="formRent.end_hours" name="end_hours" required>
+        </div>
+        <div class="form-group">
+          <label for="client">Cliente:</label>
+          <select id="client" [(ngModel)]="formRent.client" name="client" required>
+            <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="theme">Tema:</label>
+          <select id="theme" [(ngModel)]="formRent.theme" name="theme" required>
+            <option *ngFor="let theme of themes" [value]="theme.id">{{ theme.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="address">Endereço:</label>
+          <select id="address" [(ngModel)]="formRent.address" name="address" required>
+            <option *ngFor="let address of addresses" [value]="address.id">{{ address.street }}</option>
+          </select>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn-submit">{{ selectedRent ? 'Atualizar' : 'Criar' }}</button>
+          <button type="button" class="btn-cancel" (click)="cancel()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  
+    
+  </div>
+  

@@ -1,0 +1,75 @@
+<div class="container">
+    <h2>Endereços</h2>
+  
+    <!-- Botão para criar novo endereço -->
+    <button class="btn btn-primary" (click)="startCreating()" *ngIf="!isCreating && !selectedAddress">Criar Novo Endereço</button>
+  
+    <!-- Listagem de endereços -->
+    <div class="table-container">
+      <table *ngIf="addresses.length > 0" class="addresses-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Rua</th>
+            <th>Número</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let address of addresses">
+            <td>{{ address.id }}</td>
+            <td>{{ address.street }}</td>
+            <td>{{ address.number }}</td>
+            <td>{{ address.complement }}</td>
+            <td>{{ address.district }}</td>
+            <td>{{ address.city }}</td>
+            <td>{{ address.state }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="selectAddress(address)">Editar</button>
+              <button class="btn btn-delete" (click)="deleteAddress(address.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Formulário para criação/edição de endereço -->
+    <div class="form-container" *ngIf="selectedAddress || isCreating">
+      <h3>{{ selectedAddress ? 'Editar Endereço' : 'Criar Endereço' }}</h3>
+      <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+        <div class="form-group">
+          <label for="street">Rua:</label>
+          <input id="street" [(ngModel)]="formAddress.street" name="street" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="number">Número:</label>
+          <input id="number" type="number" [(ngModel)]="formAddress.number" name="number" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="complement">Complemento:</label>
+          <input id="complement" [(ngModel)]="formAddress.complement" name="complement" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="district">Bairro:</label>
+          <input id="district" [(ngModel)]="formAddress.district" name="district" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="city">Cidade:</label>
+          <input id="city" [(ngModel)]="formAddress.city" name="city" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="state">Estado:</label>
+          <input id="state" [(ngModel)]="formAddress.state" name="state" required class="form-control">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-submit">{{ selectedAddress ? 'Atualizar' : 'Criar' }}</button>
+          <button type="button" (click)="cancel()" class="btn btn-cancel">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
