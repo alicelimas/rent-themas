@@ -4,9 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Dependências
 
-npm install -g @angular/cli@16.2.0
-npm install primeng primeicons --legacy-peer-deps
-ng add @angular/material
+npm install -g @angular/cli@16.2.0  
+
+npm install primeng primeicons --legacy-peer-deps  
+
+ng add @angular/material  
+
 
 
 ## Development server
